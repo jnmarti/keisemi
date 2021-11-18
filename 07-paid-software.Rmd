@@ -1,0 +1,19 @@
+# 有料ソフトの利用
+
+これまで使ってきた例では、オープンソースのコードとデータしか含まれていない。しかし、多くの研究者は、StataやMatlabなど、限定的なライセンスの有料ソフトウェアを使用している。
+
+厳密にいえば、これらのソフトウェアをDockerで使用することが可能だが、その利用方法がそれぞれのライセンスにしたがわなければならない。公式のDocker Imageが提供される場合はプロバイダーの指示に従って利用できる。そうでない場合はDockerでの使い方がライセンス的に許されるかを先に確認するべきである。このセクションでは、よく使われる有料の統計ソフトのDockerでの使用例を紹介する。
+
+
+## Matlab
+
+Docker上でMatlabを利用する場合公式のDocker Imageを使うことができる。詳しくは [公式レポジトリ](https://hub.docker.com/r/mathworks/matlab)を確認してほしい。
+
+## ArcGIS Notebook Server
+
+ArcGISを用いたノートブック環境で地理情報の分析をDocker上で行うことができる。 [公式サイト](https://enterprise.arcgis.com/ja/notebook/latest/install/windows/docker-and-arcgis-notebook-server.htm)の指示に従って利用してください。
+
+## Stata
+
+知っている限りはStataの公式Docker Image、又はDocker上での利用に関する公式ガイドが存在しない。
+American Economic ReviewのData Editorの [GitHubアカウント](https://github.com/AEADataEditor/docker-stata)でDockerでStataの利用を可能にするDocker Imageが公開されている。Docker Hubの [dataeditors](https://hub.docker.com/u/dataeditors)レポジトリでも見つけることができる。当該ライセンスの内容を確認してから利用するとよい。

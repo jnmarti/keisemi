@@ -1,0 +1,46 @@
+# Docker Compose
+
+Docker Composeは複数コンテナで構成される作業環境の管理を可能にするツールである。また、作業環境の設定を1つのファイルにまとめたい時にも使われる。このセクションではデータ分析のためのDocker Composeの使い方を紹介する。より詳しい情報が必要な場合は [公式ガイド](https://docs.docker.com/compose/)を確認してください。
+
+まず、Docker ComposeはDockerのコマンドラインインターフェースと違うツールだから、Dockerが用意されているパソコンならDocker Composもインストールされているとは限らない。ただ、Docker Desktop for Windows又はMacOSでDockerをインストールした場合Composeも一緒に付いてくる。
+
+下記のフォルダー構造の場合で考えてみよう：
+
+```
+.
+├── data_analysis
+│   ├── Dockerfile
+│   ├── analyze_data.py
+├── data_processing
+│   ├── Dockerfile
+│   ├── process_data.py
+└── docker-compose.yaml
+```
+データクリーニングやデータ分析はそれぞれ独立したタスクであるため、それぞれのDocker ImageやそのDockerfileがある。必要な設定（volume、環境変数、portsなど）も異なる。
+両方のコンテナの設定は`docker-compose.yaml`というファイルにまとめられている。その内容は：
+```
+version: "3"
+services:
+  data_processing:
+    build:
+      context: .
+      dockerfile: ./data_processing/Dockerfile
+    volumes:
+      - /home/users/me/data/:/data/
+
+  data_analysis:
+    build:
+      context: .
+      dockerfile: ./data_analysis/Dockerfile
+    ports:
+      - 8787:8787
+    environment:
+      - NUM_CORES: ${MY_NUM_CORES}
+    volumes:
+      - /home/users/me/data/:/data/
+```
+このファイルでは二つのサービスがていぎされている：**data_processing**と**data_analysis**。それぞれのサービスの定義の中には *build*, *ports*, *volumes*, *environment*といったサブセクションがあり、その中で必要なDockerfileへのパス、volumeの設定、アクセスに必要なポート、コンテナの中のプログラムがアクセスしてほしい環境変数を定義している。このような設定は `docker run`でコンテナを立ち上げる時にも使えるがすべてをそのコマンドで設定しようとすればこまんどが長くなることで、必要なオプションを使うのを忘れたり、書き間違えたりすることがある。Docker Composeを使えばコンテナの起動はより簡単になる。
+
+例えば、`data_analysis`というサービスのみを立ち上げたいときは `docker-compose up data_analysis`を実行する。作業が終わって、サービスを停止したい場合は `docker-compose stop data_analysis`で簡単にできる。`docker-compose down`を使えば全てのこの**docker-compose.yaml**ファイルで定義されているサービスが破棄される。
+
+単純に`docker-compose up`を実行すると全ての定義されたサービスが同時に立ち上がる。このセクションで使っている例ではあまりやる意味がない（データクリーニングやデータ分析を同時に行うことは中々ないはずだ）が、そうしたい場合もある。例えば、テキストデータや地理情報を分析しているとき、そのデータ構造に適切なデータベースを用意することでデータ分析がより円滑に行える場合、データ分析の作業環境とともにそのデータベースも立ち上げる必要がある。データベースをサービスとして`docker-compose.yaml`に定義することでそのワークフローが可能になる。

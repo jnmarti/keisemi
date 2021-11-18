@@ -1,0 +1,25 @@
+# Dockerを使い始めるには
+
+Docker can be used in computers running on Windows, MacOS and Linux. It is often used in computers on the cloud to perform automated tasks as well as desktop computers for data analysis and web development. This section includes some resources to make it easier for you to get your hands into Docker.
+
+## インストール
+
+You can find the installation instructions for the three operating systems in [Docker's website](https://docs.docker.jp/get-docker.html).
+
+In the case of Windows and MacOS, the easiest way to get started is by installing Docker Desktop, which includes Docker Engine, a command line interface, Docker Compose and many other useful tools in one single easty-to-install package. Docker Desktop includes a graphical user interface (UI) through which you can manage your images, start new containers and check the logs without having to use the command line interface.
+
+```{r, echo=FALSE, out.width="75%", fig.align="center"}
+knitr::include_graphics(rep('images/docker_desktop.png'))
+```
+
+Though I recommend being able to use the command line interface for using Docker, Docker Desktop can help you better understand its usage.
+
+## オンラインでの利用
+
+An easy way of trying Docker without having to install it is using *Play With Docker*. This is a Linux environment hosted in the cloud with Docker already installed and ready to use. It is completely free, and allows you to open sessions for up to four hours.
+
+```{r, echo=FALSE, out.width="75%", fig.align="center"}
+knitr::include_graphics(rep('images/play_with_docker.png'))
+```
+
+The available resources, such as disk space, memory and processing power, are very limited, so you cannot use *Play With Docker* to perform heavy tasks. However, if all you wanna do is practice, this is a very nice way of doing it. Since *Play With Docker* works on the cloud, you should never put sensitive information, such as passwords or data, on it.

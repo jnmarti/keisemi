@@ -1,0 +1,3 @@
+# Research Examples
+
+Here are some examples of empirical research in Economics that use Docker for reproducibility or to share code libraries.

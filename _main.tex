@@ -1,0 +1,138 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Dockerによる環境構築},
+            pdfauthor={Juan Martínez},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Dockerによる環境構築}
+\author{Juan Martínez}
+\date{2021-11-07}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{about-this-site}{%
+\chapter*{About This Site}\label{about-this-site}}
+\addcontentsline{toc}{chapter}{About This Site}
+
+This site includes some additional contents related to the article 「Dockerによる環境構築」 published by 経済セミナー、number XXXX in XXXXX. These are additional topics that make it easier to understand Docker's usage, security recommendations and some advanced topics that could not be covered in the main article due to space restrictions.
+
+\hypertarget{installation}{%
+\chapter{Installation}\label{installation}}
+
+This section is about installing Docker on your system.
+
+\hypertarget{docker-volumes}{%
+\chapter{Docker Volumes}\label{docker-volumes}}
+
+The files you create within a Docker container gets completely deleted when the container gets discarded. But usually you need to store the results of your work outside the container, so that you can continue later. This section shows you how to share data between a container and your main filesystem.
+
+\hypertarget{docker-compose}{%
+\chapter{Docker Compose}\label{docker-compose}}
+
+Sometimes you need more than one container to get the job done. One good example was presented in the main article: when you need to process some data and analyze it. In that case it may be easier to perform both tasks in separate containers, because creating a single Docker image that does everything is difficult or takes time to do.
+
+Docker compose gives you a simple way of organizing work environments that consist of more than one container. It also allows you to organize your code in a readable way in a single text file, so you don't need to input very long commands. This is very useful even if you only use one container.
+
+\hypertarget{exercises}{%
+\chapter{Exercises}\label{exercises}}
+
+Docker can be very intimidating at first, so it is a good idea to practice its usage with small examples in incremental steps. This section introduces short exercises that will help you gain experience with Docker.
+
+\hypertarget{hello-world}{%
+\section{Hello World}\label{hello-world}}
+
+Start the \texttt{hello-world} container.
+
+\hypertarget{building-a-simple-image}{%
+\section{Building a Simple Image}\label{building-a-simple-image}}
+
+Write a dockerfile, build an image from it and start a container.
+
+\hypertarget{start-an-rstudio-session-on-a-container}{%
+\section{Start an RStudio Session on a Container}\label{start-an-rstudio-session-on-a-container}}
+
+Use Rocker on your computer and access it from the web browser
+
+\hypertarget{rstudio-with-a-volume-to-store-your-work}{%
+\section{RStudio with a Volume to Store your Work}\label{rstudio-with-a-volume-to-store-your-work}}
+
+Same as the previous exercise, but let's link an existing directory to a location within the container to keep the stored data.
+
+\hypertarget{publishing-on-docker-hub}{%
+\section{Publishing on Docker Hub}\label{publishing-on-docker-hub}}
+
+Create a Docker Hub account and publish your first image
+
+\hypertarget{security}{%
+\chapter{Security}\label{security}}
+
+This section discuses some security topics that you should have in mind when using Docker.
+
+\end{document}

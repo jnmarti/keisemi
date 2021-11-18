@@ -1,0 +1,75 @@
+# 練習問題
+
+Docker can be very intimidating at first, so it is a good idea to practice its usage with small examples in incremental steps. This section introduces short exercises that will help you gain experience with Docker.
+
+
+## Hello World
+In the first exercise you will run a container from the official [hello-world](https://hub.docker.com/_/hello-world) image.
+The container will print a welcome message on the screen and shut itself down.
+
+Try to use `docker run` to create and run a container from the `hello-world` image.
+
+<details>
+<summary>**See the solution**</summary>
+
+```bash
+docker run hello-world
+```
+
+</details>
+<br/>
+
+The container ran its main command and stopped. The container still exists, but its status should be `Exited`. You can run `docker ps --all` to see all the containers. Because we didn't name the container, docker assigned it a random one. Now try removing that container. You will need to use `docker rm` and the name of the container that Docker assigned. In my case it is called `gallant_archimedes`, but yours may be different.
+
+<details>
+<summary>**See the solution**</summary>
+
+```bash
+docker rm gallant_archimedes
+```
+
+</details>
+<br/>
+
+Now, let's run again a container from `hello-world`, but this time let's name it **my-container**.
+
+<details>
+<summary>**See the solution**</summary>
+
+```bash
+docker run --name my-container hello-world
+```
+
+</details>
+<br/>
+
+After the container stops, run `docker ps --all`. You should be able to find a container called **my-container** in an `Exited` state.
+
+Now remove it wiht `docker rm my-container`.
+
+Finally try running the container, but use the `rm` option so that the container will get removed when it stops. Assign it the **my-container** name so we can verify that it was properly removed.
+
+<details>
+<summary>**See the solution**</summary>
+
+```bash
+docker run --name my-container --rm hello-world
+```
+
+</details>
+<br/>
+
+If you use `docker ps --all` you should be able to see that there is no container called **my-container**, because it was removed.
+
+
+## Building a Simple Image
+Write a dockerfile, build an image from it and start a container.
+
+## Start an RStudio Session on a Container
+Use Rocker on your computer and access it from the web browser
+
+## RStudio with a Volume to Store your Work
+Same as the previous exercise, but let's link an existing directory to a location within the container to keep the stored data.
+
+## Publishing on Docker Hub
+Create a Docker Hub account and publish your first image
