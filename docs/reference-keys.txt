@@ -6,14 +6,6 @@ docker-compose
 練習問題
 hello-world
 building-a-simple-image
-start-an-rstudio-session-on-a-container
-rstudio-with-a-volume-to-store-your-work
-publishing-on-docker-hub
-セキュリティ
-managing-data
-use-a-.dockerignore-file
-use-volumes
-using-external-docker-images
 research-examples
 有料ソフトの利用
 matlab

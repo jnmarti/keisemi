@@ -35,7 +35,7 @@ producing computationally reproducible empirical research in Economics." />
   
   
 <link rel="prev" href="docker-compose.html"/>
-<link rel="next" href="セキュリティ.html"/>
+<link rel="next" href="research-examples.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -147,22 +147,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="練習問題.html"><a href="練習問題.html"><i class="fa fa-check"></i><b>4</b> 練習問題</a><ul>
 <li class="chapter" data-level="4.1" data-path="練習問題.html"><a href="練習問題.html#hello-world"><i class="fa fa-check"></i><b>4.1</b> Hello World</a></li>
 <li class="chapter" data-level="4.2" data-path="練習問題.html"><a href="練習問題.html#building-a-simple-image"><i class="fa fa-check"></i><b>4.2</b> Building a Simple Image</a></li>
-<li class="chapter" data-level="4.3" data-path="練習問題.html"><a href="練習問題.html#start-an-rstudio-session-on-a-container"><i class="fa fa-check"></i><b>4.3</b> Start an RStudio Session on a Container</a></li>
-<li class="chapter" data-level="4.4" data-path="練習問題.html"><a href="練習問題.html#rstudio-with-a-volume-to-store-your-work"><i class="fa fa-check"></i><b>4.4</b> RStudio with a Volume to Store your Work</a></li>
-<li class="chapter" data-level="4.5" data-path="練習問題.html"><a href="練習問題.html#publishing-on-docker-hub"><i class="fa fa-check"></i><b>4.5</b> Publishing on Docker Hub</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="セキュリティ.html"><a href="セキュリティ.html"><i class="fa fa-check"></i><b>5</b> セキュリティ</a><ul>
-<li class="chapter" data-level="5.1" data-path="セキュリティ.html"><a href="セキュリティ.html#managing-data"><i class="fa fa-check"></i><b>5.1</b> Managing Data</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="セキュリティ.html"><a href="セキュリティ.html#use-a-.dockerignore-file"><i class="fa fa-check"></i><b>5.1.1</b> Use a <code>.dockerignore</code> file</a></li>
-<li class="chapter" data-level="5.1.2" data-path="セキュリティ.html"><a href="セキュリティ.html#use-volumes"><i class="fa fa-check"></i><b>5.1.2</b> Use volumes</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="セキュリティ.html"><a href="セキュリティ.html#using-external-docker-images"><i class="fa fa-check"></i><b>5.2</b> Using External Docker Images</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="research-examples.html"><a href="research-examples.html"><i class="fa fa-check"></i><b>6</b> Research Examples</a></li>
-<li class="chapter" data-level="7" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html"><i class="fa fa-check"></i><b>7</b> 有料ソフトの利用</a><ul>
-<li class="chapter" data-level="7.1" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#matlab"><i class="fa fa-check"></i><b>7.1</b> Matlab</a></li>
-<li class="chapter" data-level="7.2" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#arcgis-notebook-server"><i class="fa fa-check"></i><b>7.2</b> ArcGIS Notebook Server</a></li>
-<li class="chapter" data-level="7.3" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#stata"><i class="fa fa-check"></i><b>7.3</b> Stata</a></li>
+<li class="chapter" data-level="5" data-path="research-examples.html"><a href="research-examples.html"><i class="fa fa-check"></i><b>5</b> Research Examples</a></li>
+<li class="chapter" data-level="6" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html"><i class="fa fa-check"></i><b>6</b> 有料ソフトの利用</a><ul>
+<li class="chapter" data-level="6.1" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#matlab"><i class="fa fa-check"></i><b>6.1</b> Matlab</a></li>
+<li class="chapter" data-level="6.2" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#arcgis-notebook-server"><i class="fa fa-check"></i><b>6.2</b> ArcGIS Notebook Server</a></li>
+<li class="chapter" data-level="6.3" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#stata"><i class="fa fa-check"></i><b>6.3</b> Stata</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -319,18 +309,6 @@ ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
                 ||----w |
                 ||     ||</code></pre>
 <p>これでDockerfileの書き方の基本を練習できた。Dockerfileの <a href="https://docs.docker.jp/engine/reference/builder.html">公式ガイド</a>はとても充実しているので、より詳しく知りたい人は参考にしてください。　🐮</p>
-</div>
-<div id="start-an-rstudio-session-on-a-container" class="section level2">
-<h2><span class="header-section-number">4.3</span> Start an RStudio Session on a Container</h2>
-<p>Use Rocker on your computer and access it from the web browser</p>
-</div>
-<div id="rstudio-with-a-volume-to-store-your-work" class="section level2">
-<h2><span class="header-section-number">4.4</span> RStudio with a Volume to Store your Work</h2>
-<p>Same as the previous exercise, but let’s link an existing directory to a location within the container to keep the stored data.</p>
-</div>
-<div id="publishing-on-docker-hub" class="section level2">
-<h2><span class="header-section-number">4.5</span> Publishing on Docker Hub</h2>
-<p>Create a Docker Hub account and publish your first image</p>
 
 </div>
 </div>
@@ -340,7 +318,7 @@ ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
         </div>
       </div>
 <a href="docker-compose.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="セキュリティ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="research-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

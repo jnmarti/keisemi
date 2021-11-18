@@ -190,12 +190,3 @@ docker run --rm my-cow:v3
 ```
 
 これでDockerfileの書き方の基本を練習できた。Dockerfileの [公式ガイド](https://docs.docker.jp/engine/reference/builder.html)はとても充実しているので、より詳しく知りたい人は参考にしてください。　`r emojifont::emoji('cow')`
-
-## Start an RStudio Session on a Container
-Use Rocker on your computer and access it from the web browser
-
-## RStudio with a Volume to Store your Work
-Same as the previous exercise, but let's link an existing directory to a location within the container to keep the stored data.
-
-## Publishing on Docker Hub
-Create a Docker Hub account and publish your first image
