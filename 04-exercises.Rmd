@@ -1,69 +1,195 @@
 # 練習問題
 
-Docker can be very intimidating at first, so it is a good idea to practice its usage with small examples in incremental steps. This section introduces short exercises that will help you gain experience with Docker.
+```{r echo=FALSE}
+print_solution <- function(solution){
+  return(
+    glue::glue("
+    <details>
+    <summary>**回答はこちら**</summary>
+    
+    \`\`\`bash
+    {solution}
+    \`\`\`
+    
+    </details>
+    <br/>
+    ")
+  )
+}
+```
 
+初めて使う人にとってはDockerは威圧に見えるが慣れるとその使い方はとても直観的で癖になる。そのため、小さな練習問題を解くことが効果的である。このセクションでは簡単な練習問題を解きながらDockerの基本を復習できる。Dockerがインストールされている環境を用意するひつようがあるから、用意していない場合はインストール [Dockerを使い始めるには](/dockerを使い始めるには.html)を参考してください。
 
 ## Hello World
-In the first exercise you will run a container from the official [hello-world](https://hub.docker.com/_/hello-world) image.
-The container will print a welcome message on the screen and shut itself down.
+この練習問題では公式の [hello-world](https://hub.docker.com/_/hello-world) Docker Imageを使って、コンテナを立ち上げる。コンテナが起動したらメッセージを画面にプリントして自動的に停止する。
 
-Try to use `docker run` to create and run a container from the `hello-world` image.
+`docker run`を使って`hello-world` Imageからコンテナを立ち上げてみよう：
 
-<details>
-<summary>**See the solution**</summary>
+`r print_solution('docker run hello-world')`
 
-```bash
-docker run hello-world
-```
+コンテナがメインコマンドを実行して自動的に停止したがコンテナがまだ破棄されていない。コンテナのステータスは`Exited`になっているはずだ。`docker ps --all`を実行することで全てのコンテナのステータスを確認することができる。立ち上げた時にコンテナに名前を付与しなかったからDockerがランダムに名前を付けてくれた。その名前も`docker ps --all`コマンドでかくにんできる。執筆の時点で自分がコンテナを立ち上げたとき、**gallant_archimedes**という名前が付けられた。
 
-</details>
-<br/>
+要らないコンテナは邪魔するから、 `docker rm`とDockerが付与してくれたコンテナの名前を使って破棄してみよう：
 
-The container ran its main command and stopped. The container still exists, but its status should be `Exited`. You can run `docker ps --all` to see all the containers. Because we didn't name the container, docker assigned it a random one. Now try removing that container. You will need to use `docker rm` and the name of the container that Docker assigned. In my case it is called `gallant_archimedes`, but yours may be different.
+`r print_solution('docker rm gallant_archimedes')`
 
-<details>
-<summary>**See the solution**</summary>
+もう一度`hello-world`からコンテナを立ち上げてみよう。今回は**my-container**という名前を付けてみよう：
 
-```bash
-docker rm gallant_archimedes
-```
+`r print_solution('docker run --name my-container hello-world')`
 
-</details>
-<br/>
+コンテナが停止したら`docker ps --all`を使って、**my-container**というコンテナがあることを確認できる。　確認できたら`docker rm my-container`を使って破棄してください。
 
-Now, let's run again a container from `hello-world`, but this time let's name it **my-container**.
 
-<details>
-<summary>**See the solution**</summary>
+毎回破棄するなら停止するときに自動的に破棄されるようにしたほうが効率がいい。もう一度コンテナを立ち上げてみよう。今回は `rm`オプションを使ってください。確認しやすくするために、**my-container**という名前を付けておこう。
 
-```bash
-docker run --name my-container hello-world
-```
+`r print_solution('docker run --name my-container --rm hello-world')`
 
-</details>
-<br/>
+コンテナが停止したら`docker ps --all`を使って、**my-container**というコンテナがないことをかくにんしてみてください。コンテナが破棄されたなら見つからないはずだ。
 
-After the container stops, run `docker ps --all`. You should be able to find a container called **my-container** in an `Exited` state.
-
-Now remove it wiht `docker rm my-container`.
-
-Finally try running the container, but use the `rm` option so that the container will get removed when it stops. Assign it the **my-container** name so we can verify that it was properly removed.
-
-<details>
-<summary>**See the solution**</summary>
-
-```bash
-docker run --name my-container --rm hello-world
-```
-
-</details>
-<br/>
-
-If you use `docker ps --all` you should be able to see that there is no container called **my-container**, because it was removed.
-
+全部上手くいったか？お疲れ様！ `r emojifont::emoji('tea')`
 
 ## Building a Simple Image
-Write a dockerfile, build an image from it and start a container.
+Dockerfileを使ってDocker Imageをビルドてみよう。
+まずフォルダーを作成し、その中でDockerfileというファイルを作成しよう。そのファイルの内容は下記にしておこう：
+```
+FROM rancher/cowsay
+```
+このファイルから作成されるDocker Imageは [cowsay](https://hub.docker.com/r/rancher/cowsay)の公式イメージをベースにしている。 `cowsay`はコマンドラインの使い方を学ぶためによく使われるLinuxのプログラムである。この練習問題では牛を喋らせる
+ようにDockerfileを編集していく。
+
+同じフォルダーから`docker build`を使ってDocker Imageをビルドしよう。イメージの名前を**my-cow:v1**にしよう。
+
+`r print_solution('docker build --tag my-cow:v1 .')`
+
+初めて**rancher/cowsay**イメージを使う場合はDocker Hubからダウンロードされる。ビルドが無事に終わったら`docker images`というコマンドを実行して、レポジトリ名 **my-cow**、tag **v1**というイメージがあることを確認しよう。
+そのイメージからコンテナを立ち上げてください：
+```
+docker run --rm my-cow:v1 moo
+```
+下記のような牛が表示されるはず。
+
+```
+ _____
+< moo >
+ -----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+```
+実行したコマンドにある**moo**はDocker Imageの*Entrypoint*（入口）に渡される引数である。その*Entrypoint*はDockerfileで設定できる。
+
+`cowsay`というプログラムの使い方は、例で説明すると、 `cowsay "hello world"`を実行したら、牛が **hello world**という。つまり、`hello world`は`cowsay`に渡される引数。先ほど作ったイメージの*Entrypoint*は [cowsay](https://github.com/rancher/cowsay/blob/1be4733e041a3fc2616fc39812a9ff9b63036130/Dockerfile#L11)というコマンドなので、`docker run`コマンドのDocker Imageの次に`moo`と書いて実行すると、それはコンテナの中で`cowsay moo`を実行するのと同じである。
+
+ベースのDocker Imageの*Entrypoint*を上書きするために、自分の作成したDockerfileに定義する必要がある。
+
+先ほど作成したDockerfileを編集して、牛がデフォルトで**経済セミナーはすごい！**と言う
+ように使用。
+
+```{r echo=FALSE}
+cowsay_2_solution <- print_solution('FROM rancher/cowsay 
+ENTRYPOINT cowsay "経済セミナーはすごい！"'
+)
+```
+
+`r cowsay_2_solution`
+
+`my-cow:v2`と名付けしてイメージをビルドしよう。
+
+`r print_solution('docker build --tag my-cow:v2 .')`
+
+では、コンテナを立ち上げてみよう：
+
+```
+docker run --rm my-cow:v2
+```
+
+Dockerfileが正しければ次の牛が表示される：
+```
+ ___________________________________
+< 経済セミナーはすごい！ >
+ -----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+いいメッセージだと思うけど、毎回実行するたびに同じメッセージが表示されるのがつまらないかもしれない。
+ファイルに複数のメッセージを書き込んで、そこから牛がランダムにえらぶようにしてみよう！
+
+まず**dadjokes**というファイルを作成しよう、内容は：
+
+```
+マイケル・ジョーダンの冗談はまぁいける冗談
+そのメロン、食べるのやめろん
+朝食食べて超ショック！
+車が来るまで待とう
+パジャマを着ているパパ、邪魔だ
+ライスだけでは、辛いっす！
+係長になるまで、まだまだ時間がかかりちょー
+下手なシャレは、辞めなしゃれ
+ソーダは美味しそーだ
+都会から来たって、「ホントかい？」
+```
+[このサイト](https://www.eternalcollegest.com/entry/oyaji-gag)からとてもレベルの高いおやじギャグを選んでみた。
+
+Dockerfileを、**dadjokes**ファイルをイメージの中に追加するように編集してみてください。
+
+```{r echo=FALSE}
+cowsay_3_solution <- print_solution('FROM rancher/cowsay 
+ADD ./dadjokes dadjokes
+ENTRYPOINT cowsay "経済セミナーはすごい！"'
+)
+```
+
+`r cowsay_3_solution`
+
+`ADD`コマンドはDockerfileと同じフォルダーにある**dadjokes**というファイルをコピーして、イメージの中に **dadjokes**という名前で保存する。
+
+こうするとファイルがイメージの中に保存される。では、ファイルからランダムに１行がランダムに選択されて、その内容を`cowsay`に渡されるようにしてこう。*Entrypoint*を下記のように書き換えよう：
+
+>ENTRYPOINT shuf -n 1 dadjokes | cowsay
+
+簡単にコマンドを解釈すると、`shuf -n 1 dadjokes`は **dadjokes**ファイルからランダムに１行を選択する。`|`はその結果を次のコマンド（この場合は`cowsay`）に渡す。
+
+つまり、Dockerfileは下記のようになる：
+
+```
+FROM rancher/cowsay
+ADD ./dadjokes dadjokes
+ENTRYPOINT shuf -n 1 dadjokes | cowsay
+```
+
+**my-cow:v3**と名付けしてイメージをビルドしよ：
+
+```
+docker build --tag my-cow:v3 .
+```
+
+では、コンテナを立ち上げてみよう：
+
+```
+docker run --rm my-cow:v3
+```
+
+全てが正しければ次のような牛が表示される：
+
+```
+ ___________________________________
+< 朝食食べて超ショック！ >
+ -----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+これでDockerfileの書き方の基本を練習できた。Dockerfileの [公式ガイド](https://docs.docker.jp/engine/reference/builder.html)はとても充実しているので、より詳しく知りたい人は参考にしてください。　`r emojifont::emoji('cow')`
 
 ## Start an RStudio Session on a Container
 Use Rocker on your computer and access it from the web browser

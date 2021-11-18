@@ -1,25 +1,28 @@
 # Dockerを使い始めるには
 
-Docker can be used in computers running on Windows, MacOS and Linux. It is often used in computers on the cloud to perform automated tasks as well as desktop computers for data analysis and web development. This section includes some resources to make it easier for you to get your hands into Docker.
+Dockerは、Windows、MacOS、Linuxで動作するコンピュータで使用することができる。このセクションでは、Dockerの操作を学ぶための環境を構築、又はアクセス、するほうほうを紹介する。
 
 ## インストール
 
-You can find the installation instructions for the three operating systems in [Docker's website](https://docs.docker.jp/get-docker.html).
+自分のパソコンにDockerをインストールの手順は [Dockerの公式サイト](https://docs.docker.jp/get-docker.html)で見つけることができる。
 
-In the case of Windows and MacOS, the easiest way to get started is by installing Docker Desktop, which includes Docker Engine, a command line interface, Docker Compose and many other useful tools in one single easty-to-install package. Docker Desktop includes a graphical user interface (UI) through which you can manage your images, start new containers and check the logs without having to use the command line interface.
+
+WindowsとMacOSの場合はDocker Desktopをインストールすることで全ての必要なツールだけではなく、便利なグラフィカル・ユーザー・インターフェース（GUI）もインストールできる。未経験のユーザーはこの方法は一番簡単だ。
+
+Docker DesktopのGUIでは、コマンドライン・インターフェース（CLI）を使わなくても、Docker Imageの管理、新しいコンテナの起動、ログの確認などができる。
 
 ```{r, echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics(rep('images/docker_desktop.png'))
 ```
 
-Though I recommend being able to use the command line interface for using Docker, Docker Desktop can help you better understand its usage.
+高度な操作がサポートされない場合があるためCLIの使い方に慣れると良いが、学習のために使うならまずGUIから学ぶと無駄に苦しまないで学習できる。
 
 ## オンラインでの利用
 
-An easy way of trying Docker without having to install it is using *Play With Docker*. This is a Linux environment hosted in the cloud with Docker already installed and ready to use. It is completely free, and allows you to open sessions for up to four hours.
+学んでみたいが今インストールする暇がないと思う人は*Play With Docker*を使うことができる。*Play With Docker*はDocker社が提供するサンドボックスのクラウド環境である。Linux環境でDockerの様々なツールが既にインストールされているため、起動するだけですぐに練習できる。
 
 ```{r, echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics(rep('images/play_with_docker.png'))
 ```
 
-The available resources, such as disk space, memory and processing power, are very limited, so you cannot use *Play With Docker* to perform heavy tasks. However, if all you wanna do is practice, this is a very nice way of doing it. Since *Play With Docker* works on the cloud, you should never put sensitive information, such as passwords or data, on it.
+使える環境のリソース（容量、メモリー、プロセッサー）はとても限定的だから思い処理には使えないが簡単なコンテナの立ち上げや小さいImageのビルドなら十分である。*Play With Docker*をアクセスするには無料のDockerアカウントが必要である。

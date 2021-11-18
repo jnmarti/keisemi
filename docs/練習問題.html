@@ -186,42 +186,139 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="練習問題" class="section level1">
 <h1><span class="header-section-number">セクション 4</span> 練習問題</h1>
-<p>Docker can be very intimidating at first, so it is a good idea to practice its usage with small examples in incremental steps. This section introduces short exercises that will help you gain experience with Docker.</p>
+<p>初めて使う人にとってはDockerは威圧に見えるが慣れるとその使い方はとても直観的で癖になる。そのため、小さな練習問題を解くことが効果的である。このセクションでは簡単な練習問題を解きながらDockerの基本を復習できる。Dockerがインストールされている環境を用意するひつようがあるから、用意していない場合はインストール <a href="/dockerを使い始めるには.html">Dockerを使い始めるには</a>を参考してください。</p>
 <div id="hello-world" class="section level2">
 <h2><span class="header-section-number">4.1</span> Hello World</h2>
-<p>In the first exercise you will run a container from the official <a href="https://hub.docker.com/_/hello-world">hello-world</a> image.
-The container will print a welcome message on the screen and shut itself down.</p>
-<p>Try to use <code>docker run</code> to create and run a container from the <code>hello-world</code> image.</p>
+<p>この練習問題では公式の <a href="https://hub.docker.com/_/hello-world">hello-world</a> Docker Imageを使って、コンテナを立ち上げる。コンテナが起動したらメッセージを画面にプリントして自動的に停止する。</p>
+<p><code>docker run</code>を使って<code>hello-world</code> Imageからコンテナを立ち上げてみよう：</p>
 <details>
-<p><summary><strong>See the solution</strong></summary></p>
+<p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">docker</span> run hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>The container ran its main command and stopped. The container still exists, but its status should be <code>Exited</code>. You can run <code>docker ps --all</code> to see all the containers. Because we didn’t name the container, docker assigned it a random one. Now try removing that container. You will need to use <code>docker rm</code> and the name of the container that Docker assigned. In my case it is called <code>gallant_archimedes</code>, but yours may be different.</p>
+<p>コンテナがメインコマンドを実行して自動的に停止したがコンテナがまだ破棄されていない。コンテナのステータスは<code>Exited</code>になっているはずだ。<code>docker ps --all</code>を実行することで全てのコンテナのステータスを確認することができる。立ち上げた時にコンテナに名前を付与しなかったからDockerがランダムに名前を付けてくれた。その名前も<code>docker ps --all</code>コマンドでかくにんできる。執筆の時点で自分がコンテナを立ち上げたとき、<strong>gallant_archimedes</strong>という名前が付けられた。</p>
+<p>要らないコンテナは邪魔するから、 <code>docker rm</code>とDockerが付与してくれたコンテナの名前を使って破棄してみよう：</p>
 <details>
-<p><summary><strong>See the solution</strong></summary></p>
+<p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">docker</span> rm gallant_archimedes</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>Now, let’s run again a container from <code>hello-world</code>, but this time let’s name it <strong>my-container</strong>.</p>
+<p>もう一度<code>hello-world</code>からコンテナを立ち上げてみよう。今回は<strong>my-container</strong>という名前を付けてみよう：</p>
 <details>
-<p><summary><strong>See the solution</strong></summary></p>
+<p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">docker</span> run --name my-container hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>After the container stops, run <code>docker ps --all</code>. You should be able to find a container called <strong>my-container</strong> in an <code>Exited</code> state.</p>
-<p>Now remove it wiht <code>docker rm my-container</code>.</p>
-<p>Finally try running the container, but use the <code>rm</code> option so that the container will get removed when it stops. Assign it the <strong>my-container</strong> name so we can verify that it was properly removed.</p>
+<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがあることを確認できる。　確認できたら<code>docker rm my-container</code>を使って破棄してください。</p>
+<p>毎回破棄するなら停止するときに自動的に破棄されるようにしたほうが効率がいい。もう一度コンテナを立ち上げてみよう。今回は <code>rm</code>オプションを使ってください。確認しやすくするために、<strong>my-container</strong>という名前を付けておこう。</p>
 <details>
-<p><summary><strong>See the solution</strong></summary></p>
+<p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">docker</span> run --name my-container --rm hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>If you use <code>docker ps --all</code> you should be able to see that there is no container called <strong>my-container</strong>, because it was removed.</p>
+<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがないことをかくにんしてみてください。コンテナが破棄されたなら見つからないはずだ。</p>
+<p>全部上手くいったか？お疲れ様！ 🍵</p>
 </div>
 <div id="building-a-simple-image" class="section level2">
 <h2><span class="header-section-number">4.2</span> Building a Simple Image</h2>
-<p>Write a dockerfile, build an image from it and start a container.</p>
+<p>Dockerfileを使ってDocker Imageをビルドてみよう。
+まずフォルダーを作成し、その中でDockerfileというファイルを作成しよう。そのファイルの内容は下記にしておこう：</p>
+<pre><code>FROM rancher/cowsay</code></pre>
+<p>このファイルから作成されるDocker Imageは <a href="https://hub.docker.com/r/rancher/cowsay">cowsay</a>の公式イメージをベースにしている。 <code>cowsay</code>はコマンドラインの使い方を学ぶためによく使われるLinuxのプログラムである。この練習問題では牛を喋らせる
+ようにDockerfileを編集していく。</p>
+<p>同じフォルダーから<code>docker build</code>を使ってDocker Imageをビルドしよう。イメージの名前を<strong>my-cow:v1</strong>にしよう。</p>
+<details>
+<p><summary><strong>回答はこちら</strong></summary></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">docker</span> build --tag my-cow:v1 .</a></code></pre></div>
+</details>
+<p><br/></p>
+<p>初めて<strong>rancher/cowsay</strong>イメージを使う場合はDocker Hubからダウンロードされる。ビルドが無事に終わったら<code>docker images</code>というコマンドを実行して、レポジトリ名 <strong>my-cow</strong>、tag <strong>v1</strong>というイメージがあることを確認しよう。
+そのイメージからコンテナを立ち上げてください：</p>
+<pre><code>docker run --rm my-cow:v1 moo</code></pre>
+<p>下記のような牛が表示されるはず。</p>
+<pre><code> _____
+&lt; moo &gt;
+ -----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</code></pre>
+<p>実行したコマンドにある<strong>moo</strong>はDocker Imageの<em>Entrypoint</em>（入口）に渡される引数である。その<em>Entrypoint</em>はDockerfileで設定できる。</p>
+<p><code>cowsay</code>というプログラムの使い方は、例で説明すると、 <code>cowsay &quot;hello world&quot;</code>を実行したら、牛が <strong>hello world</strong>という。つまり、<code>hello world</code>は<code>cowsay</code>に渡される引数。先ほど作ったイメージの<em>Entrypoint</em>は <a href="https://github.com/rancher/cowsay/blob/1be4733e041a3fc2616fc39812a9ff9b63036130/Dockerfile#L11">cowsay</a>というコマンドなので、<code>docker run</code>コマンドのDocker Imageの次に<code>moo</code>と書いて実行すると、それはコンテナの中で<code>cowsay moo</code>を実行するのと同じである。</p>
+<p>ベースのDocker Imageの<em>Entrypoint</em>を上書きするために、自分の作成したDockerfileに定義する必要がある。</p>
+<p>先ほど作成したDockerfileを編集して、牛がデフォルトで<strong>経済セミナーはすごい！</strong>と言う
+ように使用。</p>
+<details>
+<p><summary><strong>回答はこちら</strong></summary></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">FROM</span> rancher/cowsay </a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="ex">ENTRYPOINT</span> cowsay <span class="st">&quot;経済セミナーはすごい！&quot;</span></a></code></pre></div>
+</details>
+<p><br/></p>
+<p><code>my-cow:v2</code>と名付けしてイメージをビルドしよう。</p>
+<details>
+<p><summary><strong>回答はこちら</strong></summary></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ex">docker</span> build --tag my-cow:v2 .</a></code></pre></div>
+</details>
+<p><br/></p>
+<p>では、コンテナを立ち上げてみよう：</p>
+<pre><code>docker run --rm my-cow:v2</code></pre>
+<p>Dockerfileが正しければ次の牛が表示される：</p>
+<pre><code> ___________________________________
+&lt; 経済セミナーはすごい！ &gt;
+ -----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||</code></pre>
+<p>いいメッセージだと思うけど、毎回実行するたびに同じメッセージが表示されるのがつまらないかもしれない。
+ファイルに複数のメッセージを書き込んで、そこから牛がランダムにえらぶようにしてみよう！</p>
+<p>まず<strong>dadjokes</strong>というファイルを作成しよう、内容は：</p>
+<pre><code>マイケル・ジョーダンの冗談はまぁいける冗談
+そのメロン、食べるのやめろん
+朝食食べて超ショック！
+車が来るまで待とう
+パジャマを着ているパパ、邪魔だ
+ライスだけでは、辛いっす！
+係長になるまで、まだまだ時間がかかりちょー
+下手なシャレは、辞めなしゃれ
+ソーダは美味しそーだ
+都会から来たって、「ホントかい？」</code></pre>
+<p><a href="https://www.eternalcollegest.com/entry/oyaji-gag">このサイト</a>からとてもレベルの高いおやじギャグを選んでみた。</p>
+<p>Dockerfileを、<strong>dadjokes</strong>ファイルをイメージの中に追加するように編集してみてください。</p>
+<details>
+<p><summary><strong>回答はこちら</strong></summary></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="ex">FROM</span> rancher/cowsay </a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="ex">ADD</span> ./dadjokes dadjokes</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="ex">ENTRYPOINT</span> cowsay <span class="st">&quot;経済セミナーはすごい！&quot;</span></a></code></pre></div>
+</details>
+<p><br/></p>
+<p><code>ADD</code>コマンドはDockerfileと同じフォルダーにある<strong>dadjokes</strong>というファイルをコピーして、イメージの中に <strong>dadjokes</strong>という名前で保存する。</p>
+<p>こうするとファイルがイメージの中に保存される。では、ファイルからランダムに１行がランダムに選択されて、その内容を<code>cowsay</code>に渡されるようにしてこう。<em>Entrypoint</em>を下記のように書き換えよう：</p>
+<blockquote>
+<p>ENTRYPOINT shuf -n 1 dadjokes | cowsay</p>
+</blockquote>
+<p>簡単にコマンドを解釈すると、<code>shuf -n 1 dadjokes</code>は <strong>dadjokes</strong>ファイルからランダムに１行を選択する。<code>|</code>はその結果を次のコマンド（この場合は<code>cowsay</code>）に渡す。</p>
+<p>つまり、Dockerfileは下記のようになる：</p>
+<pre><code>FROM rancher/cowsay
+ADD ./dadjokes dadjokes
+ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
+<p><strong>my-cow:v3</strong>と名付けしてイメージをビルドしよ：</p>
+<pre><code>docker build --tag my-cow:v3 .</code></pre>
+<p>では、コンテナを立ち上げてみよう：</p>
+<pre><code>docker run --rm my-cow:v3</code></pre>
+<p>全てが正しければ次のような牛が表示される：</p>
+<pre><code> ___________________________________
+&lt; 朝食食べて超ショック！ &gt;
+ -----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||</code></pre>
+<p>これでDockerfileの書き方の基本を練習できた。Dockerfileの <a href="https://docs.docker.jp/engine/reference/builder.html">公式ガイド</a>はとても充実しているので、より詳しく知りたい人は参考にしてください。　🐮</p>
 </div>
 <div id="start-an-rstudio-session-on-a-container" class="section level2">
 <h2><span class="header-section-number">4.3</span> Start an RStudio Session on a Container</h2>

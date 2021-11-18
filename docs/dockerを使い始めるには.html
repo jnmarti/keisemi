@@ -186,19 +186,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="dockerを使い始めるには" class="section level1">
 <h1><span class="header-section-number">セクション 1</span> Dockerを使い始めるには</h1>
-<p>Docker can be used in computers running on Windows, MacOS and Linux. It is often used in computers on the cloud to perform automated tasks as well as desktop computers for data analysis and web development. This section includes some resources to make it easier for you to get your hands into Docker.</p>
+<p>Dockerは、Windows、MacOS、Linuxで動作するコンピュータで使用することができる。このセクションでは、Dockerの操作を学ぶための環境を構築、又はアクセス、するほうほうを紹介する。</p>
 <div id="インストール" class="section level2">
 <h2><span class="header-section-number">1.1</span> インストール</h2>
-<p>You can find the installation instructions for the three operating systems in <a href="https://docs.docker.jp/get-docker.html">Docker’s website</a>.</p>
-<p>In the case of Windows and MacOS, the easiest way to get started is by installing Docker Desktop, which includes Docker Engine, a command line interface, Docker Compose and many other useful tools in one single easty-to-install package. Docker Desktop includes a graphical user interface (UI) through which you can manage your images, start new containers and check the logs without having to use the command line interface.</p>
+<p>自分のパソコンにDockerをインストールの手順は <a href="https://docs.docker.jp/get-docker.html">Dockerの公式サイト</a>で見つけることができる。</p>
+<p>WindowsとMacOSの場合はDocker Desktopをインストールすることで全ての必要なツールだけではなく、便利なグラフィカル・ユーザー・インターフェース（GUI）もインストールできる。未経験のユーザーはこの方法は一番簡単だ。</p>
+<p>Docker DesktopのGUIでは、コマンドライン・インターフェース（CLI）を使わなくても、Docker Imageの管理、新しいコンテナの起動、ログの確認などができる。</p>
 <p><img src="images/docker_desktop.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>Though I recommend being able to use the command line interface for using Docker, Docker Desktop can help you better understand its usage.</p>
+<p>高度な操作がサポートされない場合があるためCLIの使い方に慣れると良いが、学習のために使うならまずGUIから学ぶと無駄に苦しまないで学習できる。</p>
 </div>
 <div id="オンラインでの利用" class="section level2">
 <h2><span class="header-section-number">1.2</span> オンラインでの利用</h2>
-<p>An easy way of trying Docker without having to install it is using <em>Play With Docker</em>. This is a Linux environment hosted in the cloud with Docker already installed and ready to use. It is completely free, and allows you to open sessions for up to four hours.</p>
+<p>学んでみたいが今インストールする暇がないと思う人は<em>Play With Docker</em>を使うことができる。<em>Play With Docker</em>はDocker社が提供するサンドボックスのクラウド環境である。Linux環境でDockerの様々なツールが既にインストールされているため、起動するだけですぐに練習できる。</p>
 <p><img src="images/play_with_docker.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The available resources, such as disk space, memory and processing power, are very limited, so you cannot use <em>Play With Docker</em> to perform heavy tasks. However, if all you wanna do is practice, this is a very nice way of doing it. Since <em>Play With Docker</em> works on the cloud, you should never put sensitive information, such as passwords or data, on it.</p>
+<p>使える環境のリソース（容量、メモリー、プロセッサー）はとても限定的だから思い処理には使えないが簡単なコンテナの立ち上げや小さいImageのビルドなら十分である。<em>Play With Docker</em>をアクセスするには無料のDockerアカウントが必要である。</p>
 
 </div>
 </div>
