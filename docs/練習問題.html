@@ -35,7 +35,7 @@ producing computationally reproducible empirical research in Economics." />
   
   
 <link rel="prev" href="docker-compose.html"/>
-<link rel="next" href="research-examples.html"/>
+<link rel="next" href="実証研究での利用.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -146,9 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="docker-compose.html"><a href="docker-compose.html"><i class="fa fa-check"></i><b>3</b> Docker Compose</a></li>
 <li class="chapter" data-level="4" data-path="練習問題.html"><a href="練習問題.html"><i class="fa fa-check"></i><b>4</b> 練習問題</a><ul>
 <li class="chapter" data-level="4.1" data-path="練習問題.html"><a href="練習問題.html#hello-world"><i class="fa fa-check"></i><b>4.1</b> Hello World</a></li>
-<li class="chapter" data-level="4.2" data-path="練習問題.html"><a href="練習問題.html#building-a-simple-image"><i class="fa fa-check"></i><b>4.2</b> Building a Simple Image</a></li>
+<li class="chapter" data-level="4.2" data-path="練習問題.html"><a href="練習問題.html#牛を喋らせる"><i class="fa fa-check"></i><b>4.2</b> 牛を喋らせる</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="research-examples.html"><a href="research-examples.html"><i class="fa fa-check"></i><b>5</b> Research Examples</a></li>
+<li class="chapter" data-level="5" data-path="実証研究での利用.html"><a href="実証研究での利用.html"><i class="fa fa-check"></i><b>5</b> 実証研究での利用</a></li>
 <li class="chapter" data-level="6" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html"><i class="fa fa-check"></i><b>6</b> 有料ソフトの利用</a><ul>
 <li class="chapter" data-level="6.1" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#matlab"><i class="fa fa-check"></i><b>6.1</b> Matlab</a></li>
 <li class="chapter" data-level="6.2" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#arcgis-notebook-server"><i class="fa fa-check"></i><b>6.2</b> ArcGIS Notebook Server</a></li>
@@ -209,8 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがないことをかくにんしてみてください。コンテナが破棄されたなら見つからないはずだ。</p>
 <p>全部上手くいったか？お疲れ様！ 🍵</p>
 </div>
-<div id="building-a-simple-image" class="section level2">
-<h2><span class="header-section-number">4.2</span> Building a Simple Image</h2>
+<div id="牛を喋らせる" class="section level2">
+<h2><span class="header-section-number">4.2</span> 牛を喋らせる</h2>
 <p>Dockerfileを使ってDocker Imageをビルドてみよう。
 まずフォルダーを作成し、その中でDockerfileというファイルを作成しよう。そのファイルの内容は下記にしておこう：</p>
 <pre><code>FROM rancher/cowsay</code></pre>
@@ -318,7 +318,7 @@ ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
         </div>
       </div>
 <a href="docker-compose.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="research-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="実証研究での利用.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -5,8 +5,8 @@ docker-volumes
 docker-compose
 練習問題
 hello-world
-building-a-simple-image
-research-examples
+牛を喋らせる
+実証研究での利用
 有料ソフトの利用
 matlab
 arcgis-notebook-server

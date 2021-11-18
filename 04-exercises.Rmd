@@ -48,7 +48,7 @@ print_solution <- function(solution){
 
 全部上手くいったか？お疲れ様！ `r emojifont::emoji('tea')`
 
-## Building a Simple Image
+## 牛を喋らせる
 Dockerfileを使ってDocker Imageをビルドてみよう。
 まずフォルダーを作成し、その中でDockerfileというファイルを作成しよう。そのファイルの内容は下記にしておこう：
 ```

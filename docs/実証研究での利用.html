@@ -4,12 +4,12 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>セクション 6 有料ソフトの利用 | Dockerによる環境構築</title>
+  <title>セクション 5 実証研究での利用 | Dockerによる環境構築</title>
   <meta name="description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="セクション 6 有料ソフトの利用 | Dockerによる環境構築" />
+  <meta property="og:title" content="セクション 5 実証研究での利用 | Dockerによる環境構築" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/docker_desktop.jpg" />
@@ -18,7 +18,7 @@ producing computationally reproducible empirical research in Economics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="セクション 6 有料ソフトの利用 | Dockerによる環境構築" />
+  <meta name="twitter:title" content="セクション 5 実証研究での利用 | Dockerによる環境構築" />
   
   <meta name="twitter:description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
@@ -34,8 +34,8 @@ producing computationally reproducible empirical research in Economics." />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="実証研究での利用.html"/>
-
+<link rel="prev" href="練習問題.html"/>
+<link rel="next" href="有料ソフトの利用.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -174,32 +174,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="有料ソフトの利用" class="section level1">
-<h1><span class="header-section-number">セクション 6</span> 有料ソフトの利用</h1>
-<p>これまで使ってきた例では、オープンソースのコードとデータしか含まれていない。しかし、多くの研究者は、StataやMatlabなど、限定的なライセンスの有料ソフトウェアを使用している。</p>
-<p>厳密にいえば、これらのソフトウェアをDockerで使用することが可能だが、その利用方法がそれぞれのライセンスにしたがわなければならない。公式のDocker Imageが提供される場合はプロバイダーの指示に従って利用できる。そうでない場合はDockerでの使い方がライセンス的に許されるかを先に確認するべきである。このセクションでは、よく使われる有料の統計ソフトのDockerでの使用例を紹介する。</p>
-<div id="matlab" class="section level2">
-<h2><span class="header-section-number">6.1</span> Matlab</h2>
-<p>Docker上でMatlabを利用する場合公式のDocker Imageを使うことができる。詳しくは <a href="https://hub.docker.com/r/mathworks/matlab">公式レポジトリ</a>を確認してほしい。</p>
-</div>
-<div id="arcgis-notebook-server" class="section level2">
-<h2><span class="header-section-number">6.2</span> ArcGIS Notebook Server</h2>
-<p>ArcGISを用いたノートブック環境で地理情報の分析をDocker上で行うことができる。 <a href="https://enterprise.arcgis.com/ja/notebook/latest/install/windows/docker-and-arcgis-notebook-server.htm">公式サイト</a>の指示に従って利用してください。</p>
-</div>
-<div id="stata" class="section level2">
-<h2><span class="header-section-number">6.3</span> Stata</h2>
-<p>知っている限りはStataの公式Docker Image、又はDocker上での利用に関する公式ガイドが存在しない。
-American Economic ReviewのData Editorの <a href="https://github.com/AEADataEditor/docker-stata">GitHubアカウント</a>でDockerでStataの利用を可能にするDocker Imageが公開されている。Docker Hubの <a href="https://hub.docker.com/u/dataeditors">dataeditors</a>レポジトリでも見つけることができる。当該ライセンスの内容を確認してから利用するとよい。</p>
+<div id="実証研究での利用" class="section level1">
+<h1><span class="header-section-number">セクション 5</span> 実証研究での利用</h1>
+<p>Here are some examples of empirical research in Economics that use Docker for reproducibility or to share code libraries.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="実証研究での利用.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="練習問題.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="有料ソフトの利用.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -230,7 +216,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jnmarti/keisemi/edit/main/06-paid-software.Rmd",
+"link": "https://github.com/jnmarti/keisemi/edit/main/05-research-examples.Rmd",
 "text": "Edit"
 },
 "history": {
