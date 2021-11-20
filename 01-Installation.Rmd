@@ -1,13 +1,13 @@
 # Dockerを使い始めるには
 
-Dockerは、Windows、MacOS、Linuxで動作するコンピュータで使用することができる。このセクションでは、Dockerの操作を学ぶための環境を構築、又はアクセス、するほうほうを紹介する。
+Dockerは、Windows、MacOS、Linux環境で使用することができる。このセクションでは、Dockerの操作を学ぶための環境を準備する方法（構築やアクセス）を紹介する。
 
-## インストール
+## PCにインストールする
 
-自分のパソコンにDockerをインストールの手順は [Dockerの公式サイト](https://docs.docker.jp/get-docker.html)で見つけることができる。
+自分のパソコンにDockerをインストールする手順 [Dockerの公式サイト](https://docs.docker.jp/get-docker.html)に掲載されている。
 
 
-WindowsとMacOSの場合はDocker Desktopをインストールすることで全ての必要なツールだけではなく、便利なグラフィカル・ユーザー・インターフェース（GUI）もインストールできる。未経験のユーザーはこの方法は一番簡単だ。
+あなたのOSがWindowsとMacOSであればDocker Desktopをインストールするだけで、全ての必要なツールだけではなく、便利なグラフィカル・ユーザー・インターフェース（GUI）まで入手できる。未経験のユーザーが最も簡単に充実した環境を整備するための方法である。
 
 Docker DesktopのGUIでは、コマンドライン・インターフェース（CLI）を使わなくても、Docker Imageの管理、新しいコンテナの起動、ログの確認などができる。
 
@@ -15,14 +15,14 @@ Docker DesktopのGUIでは、コマンドライン・インターフェース（
 knitr::include_graphics(rep('images/docker_desktop.png'))
 ```
 
-高度な操作がサポートされない場合があるためCLIの使い方に慣れると良いが、学習のために使うならまずGUIから学ぶと無駄に苦しまないで学習できる。
+高度な操作の一部はCLIによって行わざるを得ないが、はじめに学習のために使うならばGUIを用いて学ぶほうが遥かに楽である。簡単な操作を行うには、無駄に苦しまないで学習できる。
 
 ## オンラインでの利用
 
-学んでみたいが今インストールする暇がないと思う人は*Play With Docker*を使うことができる。*Play With Docker*はDocker社が提供するサンドボックスのクラウド環境である。Linux環境でDockerの様々なツールが既にインストールされているため、起動するだけですぐに練習できる。
+Dockerを学んでみたいが、インストールするのが面倒だと思う人は*Play With Docker*を使うことができる。*Play With Docker*はDocker社が提供するサンドボックスのクラウド環境である。Linux環境でDockerの様々なツールが既にインストールされているため、起動するだけですぐに練習できる。
 
 ```{r, echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics(rep('images/play_with_docker.png'))
 ```
 
-使える環境のリソース（容量、メモリー、プロセッサー）はとても限定的だから思い処理には使えないが簡単なコンテナの立ち上げや小さいImageのビルドなら十分である。*Play With Docker*をアクセスするには無料のDockerアカウントが必要である。
+利用環境のリソース（容量、メモリー、プロセッサー）はかなり限定的なので、重いタスクの処理には適さないが、簡単なコンテナの立ち上げや小さいImageをビルドするには十分である。*Play With Docker*をアクセスするには無料のDockerアカウントが必要である。

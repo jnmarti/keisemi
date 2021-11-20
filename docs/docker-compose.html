@@ -4,12 +4,12 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>セクション 3 Docker Compose | Dockerによる環境構築</title>
+  <title>セクション 3 Docker Compose | Dockerによる作業環境構築</title>
   <meta name="description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="セクション 3 Docker Compose | Dockerによる環境構築" />
+  <meta property="og:title" content="セクション 3 Docker Compose | Dockerによる作業環境構築" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/docker_desktop.jpg" />
@@ -18,7 +18,7 @@ producing computationally reproducible empirical research in Economics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="セクション 3 Docker Compose | Dockerによる環境構築" />
+  <meta name="twitter:title" content="セクション 3 Docker Compose | Dockerによる作業環境構築" />
   
   <meta name="twitter:description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
@@ -27,7 +27,7 @@ producing computationally reproducible empirical research in Economics." />
 <meta name="author" content="Juan Martínez" />
 
 
-<meta name="date" content="2021-11-18" />
+<meta name="date" content="2021-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>このサイトについて</a></li>
 <li class="chapter" data-level="1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html"><i class="fa fa-check"></i><b>1</b> Dockerを使い始めるには</a><ul>
-<li class="chapter" data-level="1.1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#インストール"><i class="fa fa-check"></i><b>1.1</b> インストール</a></li>
+<li class="chapter" data-level="1.1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#pcにインストールする"><i class="fa fa-check"></i><b>1.1</b> PCにインストールする</a></li>
 <li class="chapter" data-level="1.2" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#オンラインでの利用"><i class="fa fa-check"></i><b>1.2</b> オンラインでの利用</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="docker-volumes.html"><a href="docker-volumes.html"><i class="fa fa-check"></i><b>2</b> Docker Volumes</a></li>
@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="練習問題.html"><a href="練習問題.html#hello-world"><i class="fa fa-check"></i><b>4.1</b> Hello World</a></li>
 <li class="chapter" data-level="4.2" data-path="練習問題.html"><a href="練習問題.html#牛を喋らせる"><i class="fa fa-check"></i><b>4.2</b> 牛を喋らせる</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="実証研究での利用.html"><a href="実証研究での利用.html"><i class="fa fa-check"></i><b>5</b> 実証研究での利用</a></li>
+<li class="chapter" data-level="5" data-path="実証研究での実用例.html"><a href="実証研究での実用例.html"><i class="fa fa-check"></i><b>5</b> 実証研究での実用例</a></li>
 <li class="chapter" data-level="6" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html"><i class="fa fa-check"></i><b>6</b> 有料ソフトの利用</a><ul>
 <li class="chapter" data-level="6.1" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#matlab"><i class="fa fa-check"></i><b>6.1</b> Matlab</a></li>
 <li class="chapter" data-level="6.2" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#arcgis-notebook-server"><i class="fa fa-check"></i><b>6.2</b> ArcGIS Notebook Server</a></li>
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dockerによる環境構築</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dockerによる作業環境構築</a>
           </h1>
         </div>
 
@@ -176,8 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="docker-compose" class="section level1">
 <h1><span class="header-section-number">セクション 3</span> Docker Compose</h1>
-<p>Docker Composeは複数コンテナで構成される作業環境の管理を可能にするツールである。また、作業環境の設定を1つのファイルにまとめたい時にも使われる。このセクションではデータ分析のためのDocker Composeの使い方を紹介する。より詳しい情報が必要な場合は <a href="https://docs.docker.com/compose/">公式ガイド</a>を確認してください。</p>
-<p>まず、Docker ComposeはDockerのコマンドラインインターフェースと違うツールだから、Dockerが用意されているパソコンならDocker Composもインストールされているとは限らない。ただ、Docker Desktop for Windows又はMacOSでDockerをインストールした場合Composeも一緒に付いてくる。</p>
+<p>Docker Composeは複数のコンテナで構成される作業環境を管理するツールである。また、作業環境の設定を1つのファイルにまとめたい時にも使われる。このセクションではデータ分析のためのDocker Composeの使い方を紹介する。より詳しい情報が必要な場合は <a href="https://docs.docker.com/compose/">公式ガイド</a>を確認されたい。</p>
+<p>まず、Docker ComposeはDockerのコマンドラインインターフェースとは異なるツールなので、Dockerがインストールされているパソコンであっても、必ずDocker Composeがインストールされているとは限らない。ただし、Docker Desktop for Windows、またはMacOSでDockerをインストールした場合には、Composeは一緒にインストールされている。</p>
 <p>下記のフォルダー構造の場合で考えてみよう：</p>
 <pre><code>.
 ├── data_analysis
@@ -187,8 +187,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 │   ├── Dockerfile
 │   ├── process_data.py
 └── docker-compose.yaml</code></pre>
-<p>データクリーニングやデータ分析はそれぞれ独立したタスクであるため、それぞれのDocker ImageやそのDockerfileがある。必要な設定（volume、環境変数、portsなど）も異なる。
-両方のコンテナの設定は<code>docker-compose.yaml</code>というファイルにまとめられている。その内容は：</p>
+<p>データクリーニングやデータ分析はそれぞれ独立したタスクであるため、それぞれのDocker ImageやそのDockerfileがあり、必要な設定（volume、環境変数、portsなど）も異なる。
+これらのコンテナの設定は<code>docker-compose.yaml</code>というファイルにまとめられている。その内容は以下の通りである。：</p>
 <pre><code>version: &quot;3&quot;
 services:
   data_processing:
@@ -208,9 +208,9 @@ services:
       - NUM_CORES: ${MY_NUM_CORES}
     volumes:
       - /home/users/me/data/:/data/</code></pre>
-<p>このファイルでは二つのサービスがていぎされている：<strong>data_processing</strong>と<strong>data_analysis</strong>。それぞれのサービスの定義の中には <em>build</em>, <em>ports</em>, <em>volumes</em>, <em>environment</em>といったサブセクションがあり、その中で必要なDockerfileへのパス、volumeの設定、アクセスに必要なポート、コンテナの中のプログラムがアクセスしてほしい環境変数を定義している。このような設定は <code>docker run</code>でコンテナを立ち上げる時にも使えるがすべてをそのコマンドで設定しようとすればこまんどが長くなることで、必要なオプションを使うのを忘れたり、書き間違えたりすることがある。Docker Composeを使えばコンテナの起動はより簡単になる。</p>
-<p>例えば、<code>data_analysis</code>というサービスのみを立ち上げたいときは <code>docker-compose up data_analysis</code>を実行する。作業が終わって、サービスを停止したい場合は <code>docker-compose stop data_analysis</code>で簡単にできる。<code>docker-compose down</code>を使えば全てのこの<strong>docker-compose.yaml</strong>ファイルで定義されているサービスが破棄される。</p>
-<p>単純に<code>docker-compose up</code>を実行すると全ての定義されたサービスが同時に立ち上がる。このセクションで使っている例ではあまりやる意味がない（データクリーニングやデータ分析を同時に行うことは中々ないはずだ）が、そうしたい場合もある。例えば、テキストデータや地理情報を分析しているとき、そのデータ構造に適切なデータベースを用意することでデータ分析がより円滑に行える場合、データ分析の作業環境とともにそのデータベースも立ち上げる必要がある。データベースをサービスとして<code>docker-compose.yaml</code>に定義することでそのワークフローが可能になる。</p>
+<p>このファイルでは二つのサービスが定義されている：<strong>data_processing</strong>と<strong>data_analysis</strong>。それぞれのサービスの定義の中には <em>build</em>, <em>ports</em>, <em>volumes</em>, <em>environment</em>といったサブセクションがあり、その中で必要なDockerfileへのパス、volumeの設定、アクセスに必要なポート、コンテナ内のプログラムがアクセスしてほしい環境変数を定義している。これらの定義は <code>docker run</code>でコンテナを立ち上げる際にも設定できるが、その場合コマンドが非常に長くなってしまう。そのため、必要なオプションを設定し忘れたり、書き間違えたりするミスが起きやすい。Docker Composeを使えばコンテナの起動はより簡単になる。</p>
+<p>例えば、<code>data_analysis</code>というサービスのみを立ち上げたいときは <code>docker-compose up data_analysis</code>を実行する。作業が終わって、サービスを停止したい場合は <code>docker-compose stop data_analysis</code>で簡単にできる。さらに、<code>docker-compose down</code>を使えばこの<strong>docker-compose.yaml</strong>ファイルで定義されている全てのサービスが破棄される。</p>
+<p>単純に<code>docker-compose up</code>を実行すると全ての定義されたサービスが同時に立ち上がる。上記の例では、同時に立ち上げる必要はない（データクリーニングとデータ分析を同時に行うことはないだろう）が、同時に立ち上げる必要がある作業もある。例えば、テキストデータや地理情報を分析する場合には、それぞれのデータ構造に適したデータベースが必要になる。そのため、データ分析の作業環境とともにデータベースを同時に立ち上げておく必要があるが、データベースをサービスとして<code>docker-compose.yaml</code>に定義することでそのワークフローが可能になる。</p>
 
 </div>
             </section>

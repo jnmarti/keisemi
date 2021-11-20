@@ -4,12 +4,12 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>セクション 4 練習問題 | Dockerによる環境構築</title>
+  <title>セクション 4 練習問題 | Dockerによる作業環境構築</title>
   <meta name="description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="セクション 4 練習問題 | Dockerによる環境構築" />
+  <meta property="og:title" content="セクション 4 練習問題 | Dockerによる作業環境構築" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/docker_desktop.jpg" />
@@ -18,7 +18,7 @@ producing computationally reproducible empirical research in Economics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="セクション 4 練習問題 | Dockerによる環境構築" />
+  <meta name="twitter:title" content="セクション 4 練習問題 | Dockerによる作業環境構築" />
   
   <meta name="twitter:description" content="This document covers some additional topics regarding the use of Docker for
 producing computationally reproducible empirical research in Economics." />
@@ -27,7 +27,7 @@ producing computationally reproducible empirical research in Economics." />
 <meta name="author" content="Juan Martínez" />
 
 
-<meta name="date" content="2021-11-18" />
+<meta name="date" content="2021-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,7 +35,7 @@ producing computationally reproducible empirical research in Economics." />
   
   
 <link rel="prev" href="docker-compose.html"/>
-<link rel="next" href="実証研究での利用.html"/>
+<link rel="next" href="実証研究での実用例.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>このサイトについて</a></li>
 <li class="chapter" data-level="1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html"><i class="fa fa-check"></i><b>1</b> Dockerを使い始めるには</a><ul>
-<li class="chapter" data-level="1.1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#インストール"><i class="fa fa-check"></i><b>1.1</b> インストール</a></li>
+<li class="chapter" data-level="1.1" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#pcにインストールする"><i class="fa fa-check"></i><b>1.1</b> PCにインストールする</a></li>
 <li class="chapter" data-level="1.2" data-path="dockerを使い始めるには.html"><a href="dockerを使い始めるには.html#オンラインでの利用"><i class="fa fa-check"></i><b>1.2</b> オンラインでの利用</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="docker-volumes.html"><a href="docker-volumes.html"><i class="fa fa-check"></i><b>2</b> Docker Volumes</a></li>
@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="練習問題.html"><a href="練習問題.html#hello-world"><i class="fa fa-check"></i><b>4.1</b> Hello World</a></li>
 <li class="chapter" data-level="4.2" data-path="練習問題.html"><a href="練習問題.html#牛を喋らせる"><i class="fa fa-check"></i><b>4.2</b> 牛を喋らせる</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="実証研究での利用.html"><a href="実証研究での利用.html"><i class="fa fa-check"></i><b>5</b> 実証研究での利用</a></li>
+<li class="chapter" data-level="5" data-path="実証研究での実用例.html"><a href="実証研究での実用例.html"><i class="fa fa-check"></i><b>5</b> 実証研究での実用例</a></li>
 <li class="chapter" data-level="6" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html"><i class="fa fa-check"></i><b>6</b> 有料ソフトの利用</a><ul>
 <li class="chapter" data-level="6.1" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#matlab"><i class="fa fa-check"></i><b>6.1</b> Matlab</a></li>
 <li class="chapter" data-level="6.2" data-path="有料ソフトの利用.html"><a href="有料ソフトの利用.html#arcgis-notebook-server"><i class="fa fa-check"></i><b>6.2</b> ArcGIS Notebook Server</a></li>
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dockerによる環境構築</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dockerによる作業環境構築</a>
           </h1>
         </div>
 
@@ -176,56 +176,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="練習問題" class="section level1">
 <h1><span class="header-section-number">セクション 4</span> 練習問題</h1>
-<p>初めて使う人にとってはDockerは威圧に見えるが慣れるとその使い方はとても直観的で癖になる。そのため、小さな練習問題を解くことが効果的である。このセクションでは簡単な練習問題を解きながらDockerの基本を復習できる。Dockerがインストールされている環境を用意するひつようがあるから、用意していない場合はインストール <a href="/dockerを使い始めるには.html">Dockerを使い始めるには</a>を参考してください。</p>
+<p>初めて使う人にとってDockerはとても難解なものに見えるが、慣れてしまえばその使い方はとても直観的で楽しい。そのためには、小さな練習問題を解くことが効果的である。このセクションでは簡単な練習問題を解きながらDockerの基本を復習できる。Dockerがインストールされている環境を用意する必要がある。まだ用意していない場合はインストール <a href="/dockerを使い始めるには.html">Dockerを使い始めるには</a>を参考に準備してほしい。</p>
 <div id="hello-world" class="section level2">
 <h2><span class="header-section-number">4.1</span> Hello World</h2>
-<p>この練習問題では公式の <a href="https://hub.docker.com/_/hello-world">hello-world</a> Docker Imageを使って、コンテナを立ち上げる。コンテナが起動したらメッセージを画面にプリントして自動的に停止する。</p>
+<p>この練習問題では公式の <a href="https://hub.docker.com/_/hello-world">hello-world</a> Docker Imageを使って、コンテナを立ち上げる。コンテナが起動すると、メッセージが画面にプリントされて自動的に停止する。</p>
 <p><code>docker run</code>を使って<code>hello-world</code> Imageからコンテナを立ち上げてみよう：</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">docker</span> run hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>コンテナがメインコマンドを実行して自動的に停止したがコンテナがまだ破棄されていない。コンテナのステータスは<code>Exited</code>になっているはずだ。<code>docker ps --all</code>を実行することで全てのコンテナのステータスを確認することができる。立ち上げた時にコンテナに名前を付与しなかったからDockerがランダムに名前を付けてくれた。その名前も<code>docker ps --all</code>コマンドでかくにんできる。執筆の時点で自分がコンテナを立ち上げたとき、<strong>gallant_archimedes</strong>という名前が付けられた。</p>
-<p>要らないコンテナは邪魔するから、 <code>docker rm</code>とDockerが付与してくれたコンテナの名前を使って破棄してみよう：</p>
+<p>コンテナがメインコマンドを実行して自動的に停止しても、この時点ではコンテナがまだ破棄されていない。コンテナのステータスは<code>Exited</code>になっているはずだ。<code>docker ps --all</code>を実行することで全てのコンテナのステータスを確認することができる。この例では、立ち上げの際にコンテナに名前を付与しなかったため、Dockerがランダムに名前を付けてくれた。その名前は<code>docker ps --all</code>コマンドで確認できる。筆者がこの例を作成した際には<strong>gallant_archimedes</strong>という名前が付けられた。</p>
+<p>不要なコンテナは邪魔なので、 <code>docker rm</code>とDockerが付与してくれたコンテナの名前を使って破棄してみよう：</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">docker</span> rm gallant_archimedes</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>もう一度<code>hello-world</code>からコンテナを立ち上げてみよう。今回は<strong>my-container</strong>という名前を付けてみよう：</p>
+<p>もう一度<code>hello-world</code>からコンテナを立ち上げる。今回は<strong>my-container</strong>という名前を付けてみよう：</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">docker</span> run --name my-container hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがあることを確認できる。　確認できたら<code>docker rm my-container</code>を使って破棄してください。</p>
-<p>毎回破棄するなら停止するときに自動的に破棄されるようにしたほうが効率がいい。もう一度コンテナを立ち上げてみよう。今回は <code>rm</code>オプションを使ってください。確認しやすくするために、<strong>my-container</strong>という名前を付けておこう。</p>
+<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがあることを確認できる。　確認できたら<code>docker rm my-container</code>を使って破棄しよう。</p>
+<p>毎回コンテナを破棄するならば、停止とともに自動的に破棄されるようにしたほうが効率がいい。もう一度コンテナを立ち上げてみよう。今回は <code>rm</code>オプションを使う。確認しやすくするために、<strong>my-container</strong>という名前を付けておこう。</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">docker</span> run --name my-container --rm hello-world</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがないことをかくにんしてみてください。コンテナが破棄されたなら見つからないはずだ。</p>
-<p>全部上手くいったか？お疲れ様！ 🍵</p>
+<p>コンテナが停止したら<code>docker ps --all</code>を使って、<strong>my-container</strong>というコンテナがないことを確認してみてほしい。コンテナが破棄されていれば見つからないはずだ。</p>
+<p>全部上手くいっただろうか？お疲れ様！ 🍵</p>
 </div>
 <div id="牛を喋らせる" class="section level2">
 <h2><span class="header-section-number">4.2</span> 牛を喋らせる</h2>
-<p>Dockerfileを使ってDocker Imageをビルドてみよう。
-まずフォルダーを作成し、その中でDockerfileというファイルを作成しよう。そのファイルの内容は下記にしておこう：</p>
+<p>Dockerfileを使ってDocker Imageをビルドしてみよう。
+まずフォルダーを作成し、その中にDockerfileというファイルを作成する。ファイルの内容は下記のようにしてみよう：</p>
 <pre><code>FROM rancher/cowsay</code></pre>
-<p>このファイルから作成されるDocker Imageは <a href="https://hub.docker.com/r/rancher/cowsay">cowsay</a>の公式イメージをベースにしている。 <code>cowsay</code>はコマンドラインの使い方を学ぶためによく使われるLinuxのプログラムである。この練習問題では牛を喋らせる
-ようにDockerfileを編集していく。</p>
+<p>このファイルから作成されるDocker Imageは <a href="https://hub.docker.com/r/rancher/cowsay">cowsay</a>の公式イメージをベースにしている。 <code>cowsay</code>はコマンドラインの使い方を学習するためによく使われているLinuxのプログラムである。この練習問題ではDockerfileを編集して、牛を喋らせていく。</p>
 <p>同じフォルダーから<code>docker build</code>を使ってDocker Imageをビルドしよう。イメージの名前を<strong>my-cow:v1</strong>にしよう。</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">docker</span> build --tag my-cow:v1 .</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>初めて<strong>rancher/cowsay</strong>イメージを使う場合はDocker Hubからダウンロードされる。ビルドが無事に終わったら<code>docker images</code>というコマンドを実行して、レポジトリ名 <strong>my-cow</strong>、tag <strong>v1</strong>というイメージがあることを確認しよう。
-そのイメージからコンテナを立ち上げてください：</p>
+<p>初めて<strong>rancher/cowsay</strong>イメージを使う際には、Docker Hubから自動的にダウンロードされる。ビルドが無事に終わったら<code>docker images</code>というコマンドを実行して、レポジトリ名 <strong>my-cow</strong>、tag <strong>v1</strong>というイメージがあることを確認しよう。
+そのイメージからコンテナを立ち上げよう：</p>
 <pre><code>docker run --rm my-cow:v1 moo</code></pre>
-<p>下記のような牛が表示されるはず。</p>
+<p>下記のような牛が表示されるはずだ。</p>
 <pre><code> _____
 &lt; moo &gt;
  -----
@@ -236,25 +235,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 ||     ||
 </code></pre>
 <p>実行したコマンドにある<strong>moo</strong>はDocker Imageの<em>Entrypoint</em>（入口）に渡される引数である。その<em>Entrypoint</em>はDockerfileで設定できる。</p>
-<p><code>cowsay</code>というプログラムの使い方は、例で説明すると、 <code>cowsay &quot;hello world&quot;</code>を実行したら、牛が <strong>hello world</strong>という。つまり、<code>hello world</code>は<code>cowsay</code>に渡される引数。先ほど作ったイメージの<em>Entrypoint</em>は <a href="https://github.com/rancher/cowsay/blob/1be4733e041a3fc2616fc39812a9ff9b63036130/Dockerfile#L11">cowsay</a>というコマンドなので、<code>docker run</code>コマンドのDocker Imageの次に<code>moo</code>と書いて実行すると、それはコンテナの中で<code>cowsay moo</code>を実行するのと同じである。</p>
+<p><code>cowsay</code>というプログラムの使い方を説明しよう。例えば <code>cowsay &quot;hello world&quot;</code>を実行すると、牛が <strong>hello world</strong>と喋る。つまり、<code>hello world</code>は<code>cowsay</code>に渡される引数である。先ほど作ったイメージの<em>Entrypoint</em>は <a href="https://github.com/rancher/cowsay/blob/1be4733e041a3fc2616fc39812a9ff9b63036130/Dockerfile#L11">cowsay</a>というコマンドなので、<code>docker run</code>コマンドのDocker Imageの次に<code>moo</code>と書いて実行することは、コンテナ内で<code>cowsay moo</code>を実行するのと同じである。</p>
 <p>ベースのDocker Imageの<em>Entrypoint</em>を上書きするために、自分の作成したDockerfileに定義する必要がある。</p>
-<p>先ほど作成したDockerfileを編集して、牛がデフォルトで<strong>経済セミナーはすごい！</strong>と言う
-ように使用。</p>
+<p>先ほど作成したDockerfileを編集して、牛がデフォルトで<strong>経済セミナーはすごい！</strong>と喋る
+ようにしよう。</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">FROM</span> rancher/cowsay </a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="ex">ENTRYPOINT</span> cowsay <span class="st">&quot;経済セミナーはすごい！&quot;</span></a></code></pre></div>
 </details>
 <p><br/></p>
-<p><code>my-cow:v2</code>と名付けしてイメージをビルドしよう。</p>
+<p><code>my-cow:v2</code>と名付けしてイメージをビルドする。</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ex">docker</span> build --tag my-cow:v2 .</a></code></pre></div>
 </details>
 <p><br/></p>
-<p>では、コンテナを立ち上げてみよう：</p>
+<p>コンテナを立ち上げてみよう：</p>
 <pre><code>docker run --rm my-cow:v2</code></pre>
-<p>Dockerfileが正しければ次の牛が表示される：</p>
+<p>Dockerfileが正しければ牛は次のように喋る：</p>
 <pre><code> ___________________________________
 &lt; 経済セミナーはすごい！ &gt;
  -----------------------------------
@@ -263,9 +262,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             (__)\       )\/\
                 ||----w |
                 ||     ||</code></pre>
-<p>いいメッセージだと思うけど、毎回実行するたびに同じメッセージが表示されるのがつまらないかもしれない。
-ファイルに複数のメッセージを書き込んで、そこから牛がランダムにえらぶようにしてみよう！</p>
-<p>まず<strong>dadjokes</strong>というファイルを作成しよう、内容は：</p>
+<p>素晴らしいメッセージだが、毎回実行するたびに同じメッセージが表示されるのはつまらないかもしれない。
+ファイルに複数のメッセージを書き込んで、そこから牛がランダムに台詞を選ぶようにしてみよう！</p>
+<p>まず、<strong>dadjokes</strong>というファイルを作成する、内容は牛の台詞である。：</p>
 <pre><code>マイケル・ジョーダンの冗談はまぁいける冗談
 そのメロン、食べるのやめろん
 朝食食べて超ショック！
@@ -277,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ソーダは美味しそーだ
 都会から来たって、「ホントかい？」</code></pre>
 <p><a href="https://www.eternalcollegest.com/entry/oyaji-gag">このサイト</a>からとてもレベルの高いおやじギャグを選んでみた。</p>
-<p>Dockerfileを、<strong>dadjokes</strong>ファイルをイメージの中に追加するように編集してみてください。</p>
+<p><strong>dadjokes</strong>ファイルをDocker Imageの中に追加するように、Dockerfileを編集してみる。</p>
 <details>
 <p><summary><strong>回答はこちら</strong></summary></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="ex">FROM</span> rancher/cowsay </a>
@@ -285,8 +284,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="ex">ENTRYPOINT</span> cowsay <span class="st">&quot;経済セミナーはすごい！&quot;</span></a></code></pre></div>
 </details>
 <p><br/></p>
-<p><code>ADD</code>コマンドはDockerfileと同じフォルダーにある<strong>dadjokes</strong>というファイルをコピーして、イメージの中に <strong>dadjokes</strong>という名前で保存する。</p>
-<p>こうするとファイルがイメージの中に保存される。では、ファイルからランダムに１行がランダムに選択されて、その内容を<code>cowsay</code>に渡されるようにしてこう。<em>Entrypoint</em>を下記のように書き換えよう：</p>
+<p><code>ADD</code>コマンドはDockerfileと同じフォルダーにある<strong>dadjokes</strong>というファイルをコピーして、Imageの中に <strong>dadjokes</strong>という名前で保存する。</p>
+<p>次に、ファイルから１つの台詞がランダムに選択されて、その内容が<code>cowsay</code>に渡されるようにしよう。<em>Entrypoint</em>を下記のように書き換える：</p>
 <blockquote>
 <p>ENTRYPOINT shuf -n 1 dadjokes | cowsay</p>
 </blockquote>
@@ -295,11 +294,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>FROM rancher/cowsay
 ADD ./dadjokes dadjokes
 ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
-<p><strong>my-cow:v3</strong>と名付けしてイメージをビルドしよ：</p>
+<p><strong>my-cow:v3</strong>と名付けしてイメージをビルドする：</p>
 <pre><code>docker build --tag my-cow:v3 .</code></pre>
 <p>では、コンテナを立ち上げてみよう：</p>
 <pre><code>docker run --rm my-cow:v3</code></pre>
-<p>全てが正しければ次のような牛が表示される：</p>
+<p>全てが正しければ、牛は次のようにレベルの高いおやじギャグを喋るだろう：</p>
 <pre><code> ___________________________________
 &lt; 朝食食べて超ショック！ &gt;
  -----------------------------------
@@ -308,7 +307,7 @@ ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
             (__)\       )\/\
                 ||----w |
                 ||     ||</code></pre>
-<p>これでDockerfileの書き方の基本を練習できた。Dockerfileの <a href="https://docs.docker.jp/engine/reference/builder.html">公式ガイド</a>はとても充実しているので、より詳しく知りたい人は参考にしてください。　🐮</p>
+<p>これでDockerfileの書き方の基本を練習できた。Dockerfileの <a href="https://docs.docker.jp/engine/reference/builder.html">公式ガイド</a>はとても充実しているので、より詳しく知りたい人は参考にしてほしい。　🐮</p>
 
 </div>
 </div>
@@ -318,7 +317,7 @@ ENTRYPOINT shuf -n 1 dadjokes | cowsay</code></pre>
         </div>
       </div>
 <a href="docker-compose.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="実証研究での利用.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="実証研究での実用例.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
